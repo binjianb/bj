@@ -29,7 +29,6 @@
             padding: 20px 0;
         }
         
-        /* 主容器 */
         .main-container {
             max-width: 900px;
             margin: 0 auto;
@@ -40,23 +39,12 @@
             border: 1px solid #e6f0ff;
         }
         
-        /* 头部区域 */
         .header-section {
             background: linear-gradient(90deg, #1890ff 0%, #096dd9 100%);
             padding: 25px 30px;
             text-align: center;
             color: white;
             position: relative;
-        }
-        
-        .header-section::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: rgba(255, 255, 255, 0.2);
         }
         
         .logo-container {
@@ -82,13 +70,6 @@
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         
-        .site-subtitle {
-            font-size: 15px;
-            opacity: 0.9;
-            font-weight: 300;
-        }
-        
-        /* 标签导航 */
         .tab-nav {
             display: flex;
             background: #f8fbff;
@@ -109,18 +90,12 @@
             font-weight: 500;
         }
         
-        .tab-item:hover {
-            color: #1890ff;
-            background: #f0f7ff;
-        }
-        
         .tab-item.active {
             color: #1890ff;
             border-bottom-color: #1890ff;
             background: #f0f7ff;
         }
         
-        /* 内容区域 */
         .content-section {
             padding: 30px;
         }
@@ -134,12 +109,6 @@
             animation: fadeIn 0.3s ease;
         }
         
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        /* 表单样式 */
         .input-group {
             margin-bottom: 20px;
         }
@@ -169,7 +138,6 @@
             background: white;
         }
         
-        /* 按钮样式 */
         .action-button {
             display: block;
             width: 100%;
@@ -190,23 +158,12 @@
             box-shadow: 0 4px 12px rgba(24, 144, 255, 0.25);
         }
         
-        .primary-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(24, 144, 255, 0.35);
-        }
-        
         .secondary-btn {
             background: linear-gradient(90deg, #36cfc9 0%, #08979c 100%);
             color: white;
             box-shadow: 0 4px 12px rgba(54, 207, 201, 0.25);
         }
         
-        .secondary-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(54, 207, 201, 0.35);
-        }
-        
-        /* 链接展示区 */
         .link-display-area {
             background: #f8fbff;
             border-radius: 10px;
@@ -224,11 +181,6 @@
             margin-left: 10px;
         }
         
-        .link-text:hover {
-            text-decoration: underline;
-        }
-        
-        /* 提示信息 */
         .info-box {
             background: #f0f7ff;
             border-radius: 10px;
@@ -249,7 +201,6 @@
             color: #555;
         }
         
-        /* 使用说明区域 */
         .notice-area {
             margin-top: 30px;
             padding: 25px;
@@ -279,7 +230,6 @@
             height: 200px;
         }
         
-        /* 常用链接区域 */
         .quick-links-section {
             margin-top: 35px;
             padding-top: 25px;
@@ -311,17 +261,6 @@
             transition: all 0.3s;
             font-weight: 500;
             text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-        
-        .quick-link-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 16px rgba(0, 82, 204, 0.1);
-            border-color: #1890ff;
-            color: #1890ff;
         }
         
         .qq-group-btn {
@@ -330,12 +269,6 @@
             border: none;
         }
         
-        .qq-group-btn:hover {
-            background: linear-gradient(90deg, #0d9de3 0%, #0a8bc9 100%);
-            color: white;
-        }
-        
-        /* 底部区域 */
         .footer-section {
             text-align: center;
             padding: 25px;
@@ -345,41 +278,121 @@
             border-top: 1px solid #e6f0ff;
         }
         
-        .footer-link {
-            color: #1890ff;
-            text-decoration: none;
-        }
-        
-        .footer-link:hover {
-            text-decoration: underline;
-        }
-        
-        /* 响应式调整 */
         @media (max-width: 768px) {
             .main-container {
                 margin: 10px;
                 border-radius: 12px;
             }
-            
             .content-section {
                 padding: 20px;
             }
-            
             .quick-links-container {
                 flex-direction: column;
             }
-            
             .site-title {
                 font-size: 24px;
             }
-            
-            .tab-item {
-                padding: 15px 10px;
-                font-size: 15px;
-            }
+        }
+        
+        /* 仓库文件浏览器样式 */
+        .file-browser {
+            margin: 20px 0;
+            border: 1px solid #e6f0ff;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .file-browser-header {
+            background: #f0f7ff;
+            padding: 12px 20px;
+            font-weight: 500;
+            color: #1890ff;
+            border-bottom: 1px solid #e6f0ff;
+        }
+        
+        .file-list {
+            max-height: 300px;
+            overflow-y: auto;
+            background: white;
+        }
+        
+        .file-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            border-bottom: 1px solid #f5f5f5;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .file-item:hover {
+            background: #f8fbff;
+        }
+        
+        .file-icon {
+            width: 20px;
+            margin-right: 10px;
+            color: #666;
+        }
+        
+        .file-name {
+            flex: 1;
+            font-family: monospace;
+        }
+        
+        .file-size {
+            color: #888;
+            font-size: 13px;
+        }
+        
+        .file-content-viewer {
+            background: #f8fbff;
+            border: 1px solid #e6f0ff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+            display: none;
+        }
+        
+        .content-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .content-tab {
+            padding: 8px 16px;
+            background: #e6f0ff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            color: #666;
+        }
+        
+        .content-tab.active {
+            background: #1890ff;
+            color: white;
+        }
+        
+        .code-content {
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #e6f0ff;
+        }
+        
+        .image-preview {
+            max-width: 100%;
+            max-height: 300px;
+            border-radius: 8px;
         }
     </style>
-  <!-- 原有CSS链接 -->
+    
+    <!-- 原有CSS链接 -->
     <link href="shop_style.css" rel="stylesheet" type="text/css">
     <link href="shop.css" rel="stylesheet" type="text/css">
     <link href="style.css" rel="stylesheet" type="text/css">
@@ -394,10 +407,10 @@
         <!-- 头部 -->
         <div class="header-section">
             <div class="logo-container">
-                <img src="luyuz.png" alt="冰嘉" class="site-logo">
+                <img id="site-logo" src="luyuz.png" alt="冰嘉" class="site-logo">
                 <div>
                     <h1 class="site-title">冰嘉-照妖镜</h1>
-                    <div class="site-subtitle"></div>
+                    <div class="site-subtitle" id="repo-info"></div>
                 </div>
             </div>
         </div>
@@ -407,6 +420,7 @@
             <button class="tab-item active" onclick="switchTab('generate')">衔接生成</button>
             <button class="tab-item" onclick="switchTab('shorten')">网址缩短</button>
             <button class="tab-item" onclick="switchTab('about')">关于</button>
+            <button class="tab-item" onclick="switchTab('files')">仓库文件浏览器</button>
         </div>
         
         <!-- 内容区域 -->
@@ -476,6 +490,53 @@
                 </div>
             </div>
             
+            <!-- 标签4: 仓库文件浏览器 -->
+            <div id="tab-files" class="tab-panel">
+                <div class="info-box">
+                    <div class="info-title">仓库文件浏览器</div>
+                    <div class="info-content">
+                        可以查看当前GitHub仓库中的所有文件，点击文件名可以预览内容。
+                        <br>支持查看：JSON、TXT、YAML、JS、CSS、HTML文件和图片。
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label class="input-label">GitHub仓库路径（默认当前仓库）</label>
+                    <input type="text" class="form-input" id="repo-path" 
+                           placeholder="例如: binjianb/bj" value="">
+                    <button class="action-button primary-btn" onclick="loadRepoFiles()" style="margin-top: 10px;">
+                        加载仓库文件
+                    </button>
+                </div>
+                
+                <div id="file-browser" class="file-browser" style="display: none;">
+                    <div class="file-browser-header">
+                        仓库文件列表
+                        <span id="file-count" style="float: right; font-size: 13px;"></span>
+                    </div>
+                    <div id="file-list" class="file-list">
+                        <!-- 文件列表会动态生成 -->
+                    </div>
+                </div>
+                
+                <div id="file-content-viewer" class="file-content-viewer">
+                    <div class="content-tabs">
+                        <button class="content-tab active" onclick="switchContentView('raw')">原始内容</button>
+                        <button class="content-tab" onclick="switchContentView('preview')">预览</button>
+                        <button class="content-tab" onclick="switchContentView('info')">文件信息</button>
+                    </div>
+                    <div id="content-raw" class="content-section">
+                        <div class="code-content" id="raw-content"></div>
+                    </div>
+                    <div id="content-preview" class="content-section" style="display: none;">
+                        <div id="preview-content"></div>
+                    </div>
+                    <div id="content-info" class="content-section" style="display: none;">
+                        <div id="info-content"></div>
+                    </div>
+                </div>
+            </div>
+            
             <!-- 常用链接 -->
             <div class="quick-links-section">
                 <div class="quick-links-title">常用链接</div>
@@ -494,6 +555,7 @@
         <div class="footer-section">
             <p>Telegram频道: @GDNJVR</p>
             <p>Copyright ©2026 Powered</p>
+            <p id="repo-stats" style="font-size: 12px; margin-top: 10px;"></p>
         </div>
     </div>
     
@@ -515,6 +577,11 @@
             
             // 激活选中的标签
             event.target.classList.add('active');
+            
+            // 如果切换到文件浏览器标签，自动加载文件
+            if (tabId === 'files') {
+                setTimeout(loadRepoFiles, 100);
+            }
         }
         
         // 生成链接功能
@@ -533,7 +600,6 @@
             kd.style.pointerEvents = 'auto';
             kd.innerText = generatedLink;
             
-            // 使用layer弹窗提示
             if (typeof layer !== 'undefined') {
                 layer.msg('链接生成成功！', {icon: 1});
             } else {
@@ -551,6 +617,323 @@
             window.location.href = 'ck.php?id=' + myid;
         }
         
+        // ===================== 仓库文件浏览器功能 =====================
+        
+        // 获取当前仓库信息
+        function getCurrentRepo() {
+            // 尝试从URL获取仓库信息
+            const pathSegments = window.location.pathname.split('/');
+            if (pathSegments.length >= 3) {
+                return pathSegments[1] + '/' + pathSegments[2];
+            }
+            
+            // 如果当前页面是GitHub Pages，尝试从referrer或meta信息获取
+            const meta = document.querySelector('meta[name="repository"]');
+            if (meta) return meta.content;
+            
+            // 返回当前域名作为仓库名
+            const hostname = window.location.hostname;
+            if (hostname.includes('github.io')) {
+                const parts = hostname.split('.');
+                return parts[0] + '/' + window.location.pathname.split('/')[1];
+            }
+            
+            return '';
+        }
+        
+        // 加载仓库文件列表
+        async function loadRepoFiles() {
+            const repoPathInput = document.getElementById('repo-path');
+            let repoPath = repoPathInput.value.trim();
+            
+            // 如果输入框为空，自动获取当前仓库
+            if (!repoPath) {
+                repoPath = getCurrentRepo();
+                if (repoPath) {
+                    repoPathInput.value = repoPath;
+                } else {
+                    alert('无法自动获取仓库路径，请手动输入（格式：用户名/仓库名）');
+                    return;
+                }
+            }
+            
+            // 验证仓库路径格式
+            if (!repoPath.includes('/')) {
+                alert('请输入正确的仓库路径格式：用户名/仓库名');
+                return;
+            }
+            
+            // 显示加载状态
+            const fileList = document.getElementById('file-list');
+            fileList.innerHTML = '<div style="padding: 20px; text-align: center; color: #666;">加载中...</div>';
+            
+            const fileBrowser = document.getElementById('file-browser');
+            fileBrowser.style.display = 'block';
+            
+            try {
+                // 使用GitHub API获取仓库内容
+                const apiUrl = `https://api.github.com/repos/${repoPath}/contents/`;
+                
+                const response = await fetch(apiUrl, {
+                    headers: {
+                        'Accept': 'application/vnd.github.v3+json'
+                    }
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`GitHub API 错误: ${response.status}`);
+                }
+                
+                const files = await response.json();
+                displayFileList(files, repoPath);
+                
+                // 更新仓库信息
+                updateRepoInfo(repoPath);
+                
+            } catch (error) {
+                console.error('加载仓库文件失败:', error);
+                fileList.innerHTML = `<div style="padding: 20px; color: #ff4d4f;">
+                    <strong>加载失败:</strong> ${error.message}<br>
+                    请确保仓库路径正确且仓库是公开的。
+                </div>`;
+            }
+        }
+        
+        // 显示文件列表
+        function displayFileList(files, repoPath) {
+            const fileList = document.getElementById('file-list');
+            const fileCount = document.getElementById('file-count');
+            
+            // 按类型排序：文件夹在前，然后按文件类型排序
+            files.sort((a, b) => {
+                if (a.type === 'dir' && b.type !== 'dir') return -1;
+                if (a.type !== 'dir' && b.type === 'dir') return 1;
+                return a.name.localeCompare(b.name);
+            });
+            
+            fileList.innerHTML = '';
+            let fileItems = '';
+            
+            files.forEach(file => {
+                const icon = file.type === 'dir' ? '📁' : getFileIcon(file.name);
+                const size = file.size ? formatFileSize(file.size) : '';
+                
+                fileItems += `
+                    <div class="file-item" onclick="viewFile('${repoPath}', '${file.path}', '${file.type}', '${file.name}')">
+                        <span class="file-icon">${icon}</span>
+                        <span class="file-name">${file.name}</span>
+                        <span class="file-size">${size}</span>
+                    </div>
+                `;
+            });
+            
+            fileList.innerHTML = fileItems;
+            fileCount.textContent = `${files.length} 个文件/文件夹`;
+        }
+        
+        // 获取文件图标
+        function getFileIcon(filename) {
+            const ext = filename.split('.').pop().toLowerCase();
+            const icons = {
+                'jpg': '🖼️', 'jpeg': '🖼️', 'png': '🖼️', 'gif': '🖼️', 'svg': '🖼️',
+                'html': '🌐', 'htm': '🌐',
+                'css': '🎨',
+                'js': '📜',
+                'json': '📋',
+                'txt': '📄',
+                'md': '📝',
+                'php': '🐘',
+                'py': '🐍',
+                'java': '☕',
+                'xml': '📄',
+                'yml': '⚙️', 'yaml': '⚙️',
+                'pdf': '📕',
+                'zip': '📦', 'rar': '📦', '7z': '📦',
+                'exe': '⚙️',
+                'mp3': '🎵', 'wav': '🎵',
+                'mp4': '🎬', 'avi': '🎬'
+            };
+            return icons[ext] || '📄';
+        }
+        
+        // 格式化文件大小
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 B';
+            const k = 1024;
+            const sizes = ['B', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+        
+        // 查看文件内容
+        async function viewFile(repoPath, filePath, fileType, fileName) {
+            const contentViewer = document.getElementById('file-content-viewer');
+            contentViewer.style.display = 'block';
+            
+            // 显示加载状态
+            document.getElementById('raw-content').textContent = '加载中...';
+            document.getElementById('preview-content').innerHTML = '<div style="padding: 20px; text-align: center;">加载中...</div>';
+            
+            // 更新标签为原始内容视图
+            switchContentView('raw');
+            
+            try {
+                if (fileType === 'dir') {
+                    // 如果是文件夹，获取文件夹内的文件列表
+                    const apiUrl = `https://api.github.com/repos/${repoPath}/contents/${filePath}`;
+                    const response = await fetch(apiUrl);
+                    const files = await response.json();
+                    
+                    let folderContent = `📁 文件夹: ${fileName}\n\n`;
+                    folderContent += '包含的文件:\n';
+                    folderContent += '─'.repeat(50) + '\n';
+                    
+                    files.forEach(file => {
+                        folderContent += `${getFileIcon(file.name)} ${file.name}`;
+                        if (file.size) folderContent += ` (${formatFileSize(file.size)})`;
+                        folderContent += '\n';
+                    });
+                    
+                    document.getElementById('raw-content').textContent = folderContent;
+                    
+                    // 更新预览和信息视图
+                    updatePreviewAndInfo(filePath, fileType, folderContent);
+                    
+                } else {
+                    // 如果是文件，获取文件内容
+                    const rawUrl = `https://raw.githubusercontent.com/${repoPath}/main/${filePath}`;
+                    const response = await fetch(rawUrl);
+                    
+                    if (response.ok) {
+                        const ext = fileName.split('.').pop().toLowerCase();
+                        
+                        // 根据文件类型处理内容
+                        if (['jpg', 'jpeg', 'png', 'gif', 'svg'].includes(ext)) {
+                            // 图片文件
+                            const imageUrl = rawUrl;
+                            document.getElementById('raw-content').textContent = `图片文件: ${fileName}\nURL: ${imageUrl}`;
+                            
+                            // 预览视图显示图片
+                            document.getElementById('preview-content').innerHTML = 
+                                `<img src="${imageUrl}" alt="${fileName}" class="image-preview">`;
+                            
+                        } else if (['js', 'css', 'html', 'txt', 'json', 'xml', 'php', 'py', 'md'].includes(ext)) {
+                            // 文本文件
+                            const text = await response.text();
+                            document.getElementById('raw-content').textContent = text;
+                            
+                            // 预览视图
+                            if (ext === 'json') {
+                                try {
+                                    const jsonObj = JSON.parse(text);
+                                    document.getElementById('preview-content').innerHTML = 
+                                        `<pre style="background: white; padding: 15px; border-radius: 6px; border: 1px solid #e6f0ff;">${JSON.stringify(jsonObj, null, 2)}</pre>`;
+                                } catch {
+                                    document.getElementById('preview-content').innerHTML = 
+                                        `<div style="color: #ff4d4f;">JSON解析失败，查看原始内容</div>`;
+                                }
+                            } else if (ext === 'html') {
+                                document.getElementById('preview-content').innerHTML = 
+                                    `<iframe srcdoc="${text.replace(/"/g, '&quot;')}" style="width: 100%; height: 300px; border: 1px solid #e6f0ff; border-radius: 6px;"></iframe>`;
+                            } else {
+                                document.getElementById('preview-content').innerHTML = 
+                                    `<pre style="background: white; padding: 15px; border-radius: 6px; border: 1px solid #e6f0ff;">${text}</pre>`;
+                            }
+                        } else {
+                            // 其他文件类型
+                            const text = await response.text();
+                            document.getElementById('raw-content').textContent = text;
+                            document.getElementById('preview-content').innerHTML = 
+                                `<div style="padding: 20px; text-align: center; color: #666;">
+                                    <p>⚠️ 无法预览此文件类型</p>
+                                    <p>文件类型: ${ext.toUpperCase()}</p>
+                                    <p>文件大小: ${formatFileSize(text.length)}</p>
+                                </div>`;
+                        }
+                        
+                        // 更新文件信息
+                        updatePreviewAndInfo(filePath, fileType, await response.clone().text());
+                    }
+                }
+                
+            } catch (error) {
+                console.error('查看文件失败:', error);
+                document.getElementById('raw-content').textContent = `加载失败: ${error.message}`;
+                document.getElementById('preview-content').innerHTML = 
+                    `<div style="color: #ff4d4f; padding: 20px;">加载失败: ${error.message}</div>`;
+            }
+        }
+        
+        // 更新预览和信息视图
+        function updatePreviewAndInfo(filePath, fileType, content) {
+            // 文件信息视图
+            const infoContent = document.getElementById('info-content');
+            const ext = filePath.split('.').pop().toLowerCase();
+            const size = content.length;
+            
+            const fileTypeMap = {
+                'jpg': 'JPEG 图片', 'jpeg': 'JPEG 图片', 'png': 'PNG 图片', 
+                'gif': 'GIF 图片', 'svg': 'SVG 矢量图',
+                'html': 'HTML 网页文件', 'htm': 'HTML 网页文件',
+                'css': 'CSS 样式表', 'js': 'JavaScript 脚本',
+                'json': 'JSON 配置文件', 'txt': '文本文件',
+                'md': 'Markdown 文档', 'php': 'PHP 脚本',
+                'py': 'Python 脚本', 'xml': 'XML 文件',
+                'yml': 'YAML 配置文件', 'yaml': 'YAML 配置文件'
+            };
+            
+            infoContent.innerHTML = `
+                <div style="background: white; padding: 15px; border-radius: 6px; border: 1px solid #e6f0ff;">
+                    <p><strong>文件路径:</strong> ${filePath}</p>
+                    <p><strong>文件类型:</strong> ${fileTypeMap[ext] || ext.toUpperCase()} ${fileType === 'dir' ? '(文件夹)' : ''}</p>
+                    <p><strong>文件大小:</strong> ${formatFileSize(size)}</p>
+                    <p><strong>字符数量:</strong> ${size.toLocaleString()} 字符</p>
+                    <p><strong>行数估计:</strong> ${(content.split('\n').length - 1).toLocaleString()} 行</p>
+                    <p><strong>最后修改:</strong> ${new Date().toLocaleString()}</p>
+                </div>
+            `;
+        }
+        
+        // 切换内容视图
+        function switchContentView(view) {
+            // 隐藏所有内容区域
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // 移除所有标签的激活状态
+            document.querySelectorAll('.content-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // 显示选中的内容区域
+            document.getElementById('content-' + view).style.display = 'block';
+            
+            // 激活选中的标签
+            event.target.classList.add('active');
+        }
+        
+        // 更新仓库信息
+        async function updateRepoInfo(repoPath) {
+            try {
+                const apiUrl = `https://api.github.com/repos/${repoPath}`;
+                const response = await fetch(apiUrl);
+                
+                if (response.ok) {
+                    const repoInfo = await response.json();
+                    document.getElementById('repo-info').innerHTML = `
+                        <small style="opacity: 0.8;">仓库: ${repoInfo.full_name}</small>
+                    `;
+                    
+                    document.getElementById('repo-stats').innerHTML = `
+                        📊 仓库统计: ⭐ ${repoInfo.stargazers_count} | 👁️ ${repoInfo.watchers_count} | 🍴 ${repoInfo.forks_count}
+                    `;
+                }
+            } catch (error) {
+                console.error('获取仓库信息失败:', error);
+            }
+        }
+        
         // 防复制和右键菜单
         document.addEventListener('contextmenu', function(e) {
             e.preventDefault();
@@ -560,8 +943,16 @@
             e.preventDefault();
         });
         
-        // 页面加载完成
+        // 页面加载完成时初始化
         $(document).ready(function(){
+            // 设置默认仓库路径
+            const currentRepo = getCurrentRepo();
+            if (currentRepo) {
+                document.getElementById('repo-path').value = currentRepo;
+                document.getElementById('repo-info').innerHTML = 
+                    `<small style="opacity: 0.8;">仓库: ${currentRepo}</small>`;
+            }
+            
             // 原有初始化代码
             if (typeof getqrpic === 'function') {
                 getqrpic();
