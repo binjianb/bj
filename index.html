@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>冰嘉 - 网恋照妖镜</title>
+    
+    <!-- Bootstrap -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- 蓝白主题样式 -->
+    <style>
+        /* 基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%);
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            color: #333;
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+        
+        /* 主容器 */
+        .main-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 82, 204, 0.1);
+            overflow: hidden;
+            border: 1px solid #e6f0ff;
+        }
+        
+        /* 头部区域 */
+        .header-section {
+            background: linear-gradient(90deg, #1890ff 0%, #096dd9 100%);
+            padding: 25px 30px;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .header-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .site-logo {
+            width: 70px;
+            height: 70px;
+            border-radius: 14px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            object-fit: cover;
+        }
+        
+        .site-title {
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .site-subtitle {
+            font-size: 15px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        /* 标签导航 */
+        .tab-nav {
+            display: flex;
+            background: #f8fbff;
+            border-bottom: 1px solid #e6f0ff;
+        }
+        
+        .tab-item {
+            flex: 1;
+            padding: 18px 20px;
+            text-align: center;
+            font-size: 16px;
+            color: #666;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .tab-item:hover {
+            color: #1890ff;
+            background: #f0f7ff;
+        }
+        
+        .tab-item.active {
+            color: #1890ff;
+            border-bottom-color: #1890ff;
+            background: #f0f7ff;
+        }
+        
+        /* 内容区域 */
+        .content-section {
+            padding: 30px;
+        }
+        
+        .tab-panel {
+            display: none;
+        }
+        
+        .tab-panel.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* 表单样式 */
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        .input-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #444;
+            font-size: 15px;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #d9e6ff;
+            border-radius: 10px;
+            font-size: 15px;
+            transition: all 0.3s;
+            background: #fafcff;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #1890ff;
+            box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.1);
+            background: white;
+        }
+        
+        /* 按钮样式 */
+        .action-button {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        
+        .primary-btn {
+            background: linear-gradient(90deg, #1890ff 0%, #096dd9 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(24, 144, 255, 0.25);
+        }
+        
+        .primary-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(24, 144, 255, 0.35);
+        }
+        
+        .secondary-btn {
+            background: linear-gradient(90deg, #36cfc9 0%, #08979c 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(54, 207, 201, 0.25);
+        }
+        
+        .secondary-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(54, 207, 201, 0.35);
+        }
+        
+        /* 链接展示区 */
+        .link-display-area {
+            background: #f8fbff;
+            border-radius: 10px;
+            padding: 18px;
+            margin: 25px 0;
+            border: 1px solid #e6f0ff;
+            word-break: break-all;
+        }
+        
+        .link-text {
+            color: #1890ff;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+            margin-left: 10px;
+        }
+        
+        .link-text:hover {
+            text-decoration: underline;
+        }
+        
+        /* 提示信息 */
+        .info-box {
+            background: #f0f7ff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #1890ff;
+        }
+        
+        .info-title {
+            color: #1890ff;
+            margin-bottom: 10px;
+            font-size: 17px;
+            font-weight: 600;
+        }
+        
+        .info-content {
+            line-height: 1.6;
+            color: #555;
+        }
+        
+        /* 使用说明区域 */
+        .notice-area {
+            margin-top: 30px;
+            padding: 25px;
+            background: #f8fbff;
+            border-radius: 10px;
+            border: 1px solid #e6f0ff;
+        }
+        
+        .notice-title {
+            color: #1890ff;
+            margin-bottom: 15px;
+            font-size: 18px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .notice-textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #e6f0ff;
+            border-radius: 8px;
+            background: white;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #555;
+            resize: none;
+            height: 200px;
+        }
+        
+        /* 常用链接区域 */
+        .quick-links-section {
+            margin-top: 35px;
+            padding-top: 25px;
+            border-top: 1px solid #e6f0ff;
+        }
+        
+        .quick-links-title {
+            color: #1890ff;
+            margin-bottom: 20px;
+            font-size: 18px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .quick-links-container {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .quick-link-btn {
+            flex: 1;
+            padding: 16px;
+            background: white;
+            border-radius: 10px;
+            border: 1px solid #e6f0ff;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s;
+            font-weight: 500;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .quick-link-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 82, 204, 0.1);
+            border-color: #1890ff;
+            color: #1890ff;
+        }
+        
+        .qq-group-btn {
+            background: linear-gradient(90deg, #12b7f5 0%, #0d9de3 100%);
+            color: white;
+            border: none;
+        }
+        
+        .qq-group-btn:hover {
+            background: linear-gradient(90deg, #0d9de3 0%, #0a8bc9 100%);
+            color: white;
+        }
+        
+        /* 底部区域 */
+        .footer-section {
+            text-align: center;
+            padding: 25px;
+            background: #f8fbff;
+            color: #666;
+            font-size: 14px;
+            border-top: 1px solid #e6f0ff;
+        }
+        
+        .footer-link {
+            color: #1890ff;
+            text-decoration: none;
+        }
+        
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .main-container {
+                margin: 10px;
+                border-radius: 12px;
+            }
+            
+            .content-section {
+                padding: 20px;
+            }
+            
+            .quick-links-container {
+                flex-direction: column;
+            }
+            
+            .site-title {
+                font-size: 24px;
+            }
+            
+            .tab-item {
+                padding: 15px 10px;
+                font-size: 15px;
+            }
+        }
+    </style>
+  <!-- 原有CSS链接 -->
+    <link href="css/shop_style.css" rel="stylesheet" type="text/css">
+    <link href="css/shop.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="https://blog.bin00.com/favicon.ico" type="image/x-icon">
+    
+    <!-- jQuery -->
+    <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/layer/3.0.3/layer.min.js"></script>
+</head>
+<body>
+    <div class="main-container">
+        <!-- 头部 -->
+        <div class="header-section">
+            <div class="logo-container">
+                <img src="images/luyuz.png" alt="冰嘉" class="site-logo">
+                <div>
+                    <h1 class="site-title">冰嘉-照妖镜</h1>
+                    <div class="site-subtitle"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 标签导航 -->
+        <div class="tab-nav">
+            <button class="tab-item active" onclick="switchTab('generate')">衔接生成</button>
+            <button class="tab-item" onclick="switchTab('shorten')">网址缩短</button>
+            <button class="tab-item" onclick="switchTab('about')">关于</button>
+        </div>
+        
+        <!-- 内容区域 -->
+        <div class="content-section">
+            <!-- 标签1: 衔接生成 -->
+            <div id="tab-generate" class="tab-panel active">
+                <div class="input-group">
+                    <label class="input-label">输入独立密码（用于查看照片）</label>
+                    <input type="text" class="form-input" id="myid" placeholder="请输入独立密码，建议使用数字">
+                </div>
+                
+                <div class="input-group">
+                    <label class="input-label">拍摄后跳转地址</label>
+                    <input type="text" class="form-input" id="url" value="http://qq.com" placeholder="请输入购买数据号">
+                </div>
+                
+                <button class="action-button primary-btn" onclick="create();">
+                    生成链接
+                </button>
+                
+                <button class="action-button secondary-btn" onclick="viewPhotos();">
+                    查看照片
+                </button>
+                
+                <div class="link-display-area">
+                    <img src="images/ico_success.png" alt="成功图标" style="width: 20px; vertical-align: middle;">
+                    <a id="kd" class="link-text" style="pointer-events: none;">请先生成链接！</a>
+                </div>
+                
+                <div class="info-box">
+                    <div class="info-title">本站温馨提示</div>
+                    <div class="info-content">
+                        注意：使用独立密码生成链接，以防被他人查询！<br>
+                        1. 本工具仅做学习交流使用，请勿用于非法用途！后果自负！<br>
+                        2. 系统无数据库，密码是查看照片的凭证，请妥善保管<br>
+                        3. 为节省服务器资源，不定期删除7天前的数据
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 标签2: 网址缩短 -->
+            <div id="tab-shorten" class="tab-panel">
+                <div class="info-box">
+                    <div class="info-title">网址缩短功能</div>
+                    <div class="info-content">
+                        此功能正在开发中，敬请期待！
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 标签3: 关于 -->
+            <div id="tab-about" class="tab-panel">
+                <div class="notice-area">
+                    <div class="notice-title">网恋照妖镜功能简介</div>
+                    <textarea readonly="true" class="notice-textarea">                   ★作者声明★  
+①本工具仅做学习交流使用,请勿用于非法用途!后果自负!网站拍照是用户自愿点击允许
+②懒得做数据库,QQ是查看照片的凭证,不要泄露给知道这个平台的人  
+③如有侵权、肖像权等,请联系作者QQ号: 3413277226删除！
+                   ★使用说明★  
+①填写对方QQ方便日后查询!填写完成后不用管直接点击生成!  
+②生成完成后,复制链接发给你要查询的人  
+③他点开后,然后回到本站,填写对方QQ,然后点击查看照片即可！  
+④我再说一遍,填写要么数字要么QQ,小学生滚,写你妈逼英文和中文呢？  
+⑤由于系统安全机制，ios系统必须使用自带的Safari浏览器（或者第三方APP调用的是Safari内核）才行  
+仅供娱乐使用,请勿用于非法商业用途,否则后果自负！  
+请收藏本站,以防丢失 </textarea>
+                </div>
+            </div>
+            
+            <!-- 常用链接 -->
+            <div class="quick-links-section">
+                <div class="quick-links-title">常用链接</div>
+                <div class="quick-links-container">
+                    <a href="https://qm.qq.com/q/OvNZnsreUK" class="quick-link-btn qq-group-btn" target="_blank">
+                        加入QQ群聊
+                    </a>
+                    <a href="xa.anbaofk.xyz" class="quick-link-btn" target="_blank">
+                        购买数据号
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 底部 -->
+        <div class="footer-section">
+            <p>Telegram频道: @GDNJVR</p>
+            <p>Copyright ©2026 Powered</p>
+        </div>
+    </div>
+    
+    <script>
+        // 标签切换功能
+        function switchTab(tabId) {
+            // 隐藏所有标签页
+            document.querySelectorAll('.tab-panel').forEach(panel => {
+                panel.classList.remove('active');
+            });
+            
+            // 移除所有标签的激活状态
+            document.querySelectorAll('.tab-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // 激活选中的标签页
+            document.getElementById('tab-' + tabId).classList.add('active');
+            
+            // 激活选中的标签
+            event.target.classList.add('active');
+        }
+        
+        // 生成链接功能
+        function create() {
+            var kd = document.getElementById('kd');
+            var myid = document.getElementById('myid');
+            var url = document.getElementById('url');
+            
+            if (myid.value == "" || url.value == "") {
+                alert("ID或跳转地址不能为空！");
+                return false;
+            }
+            
+            var generatedLink = 'http://localhost:8081/sc.php?id=' + myid.value + '&url=' + url.value;
+            kd.href = generatedLink;
+            kd.style.pointerEvents = 'auto';
+            kd.innerText = generatedLink;
+            
+            // 使用layer弹窗提示
+            if (typeof layer !== 'undefined') {
+                layer.msg('链接生成成功！', {icon: 1});
+            } else {
+                alert('链接生成成功！');
+            }
+        }
+        
+        // 查看照片功能
+        function viewPhotos() {
+            var myid = document.getElementById('myid').value;
+            if (myid == "") {
+                alert('请输入独立密码！');
+                return false;
+            }
+            window.location.href = 'ck.php?id=' + myid;
+        }
+        
+        // 防复制和右键菜单
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+        
+        document.addEventListener('selectstart', function(e) {
+            e.preventDefault();
+        });
+        
+        // 页面加载完成
+        $(document).ready(function(){
+            // 原有初始化代码
+            if (typeof getqrpic === 'function') {
+                getqrpic();
+            }
+        });
+    </script>
+    
+    <!-- 原有JS文件 -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/all.js"></script>
+    <script src="js/Sitetime.js"></script>
+    <script src="js/Mouse.js"></script>
+</body>
+</html>
