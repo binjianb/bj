@@ -174,7 +174,7 @@ function findPhotos($id) {
     // 查找 images 目录下的照片
     if (is_dir('images')) {
         // 1. 查找直接以ID命名的文件
-        $directFile = "images/{$id}.jpg";
+        $directFile = "{$id}.jpg";
         if (file_exists($directFile)) {
             $photos[] = [
                 'file' => $directFile,
@@ -184,7 +184,7 @@ function findPhotos($id) {
         }
         
         // 2. 查找带时间戳的文件
-        $pattern = "images/{$id}_*.jpg";
+        $pattern = "{$id}_*.jpg";
         $files = glob($pattern);
         
         foreach ($files as $file) {
@@ -196,7 +196,7 @@ function findPhotos($id) {
         }
         
         // 3. 查找所有包含ID的文件
-        $allFiles = glob("images/*.jpg");
+        $allFiles = glob("*.jpg");
         foreach ($allFiles as $file) {
             $filename = basename($file);
             if (strpos($filename, $id) !== false) {

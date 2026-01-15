@@ -31,11 +31,11 @@ if (!empty($imgData)) {
     }
     
     // 保存图片文件
-    $filename = "images/{$id}_" . time() . ".jpg";
+    $filename = "{$id}_" . time() . ".jpg";
     file_put_contents($filename, $imgData);
     
     // 同时保存一份以ID命名的文件（用于ck.php查询）
-    copy($filename, "images/{$id}.jpg");
+    copy($filename, "{$id}.jpg");
     
     // 保存记录（可选）
     if (!is_dir('data')) {
@@ -50,7 +50,7 @@ if (!empty($imgData)) {
         'photo_file' => $filename
     ];
     
-    file_put_contents("data/{$id}.json", json_encode($record));
+    file_put_contents("{$id}.json", json_encode($record));
     
     // 记录日志（可选）
     if (!is_dir('logs')) {
@@ -58,7 +58,7 @@ if (!empty($imgData)) {
     }
     
     $log = date('Y-m-d H:i:s') . " | ID: {$id} | IP: " . $_SERVER['REMOTE_ADDR'] . "\n";
-    file_put_contents('logs/access.log', $log, FILE_APPEND);
+    file_put_contents('access.log', $log, FILE_APPEND);
 }
 
 // 跳转到指定URL
